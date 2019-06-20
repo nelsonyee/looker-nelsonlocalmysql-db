@@ -16,6 +16,16 @@ view: consultant {
     sql: ${TABLE}.LastName ;;
   }
 
+  dimension: partner_flag {
+    type: string
+    sql: ${TABLE}.PartnerFlag ;;
+  }
+
+  dimension: company {
+    type: string
+    sql: ${TABLE}.Company ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [first_name, last_name]

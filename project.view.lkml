@@ -49,6 +49,17 @@ view: project {
     sql: ${TABLE}.PrimaryAnalyst ;;
   }
 
+  dimension: customer {
+    type: string
+    sql: ${TABLE}.Customer ;;
+    link: {
+      label: "Google"
+      url: "http://www.google.com/search?q={{ value }}"
+      icon_url: "http://google.com/favicon.ico"
+    }
+  }
+
+
   dimension: project_name {
     type: string
     sql: ${TABLE}.ProjectName ;;
@@ -82,5 +93,9 @@ view: project {
   measure: count {
     type: count
     drill_fields: [project_name]
+  }
+  set: project_name {
+    fields: [project_name, start_date, end_date, percent_complete]
+
   }
 }
