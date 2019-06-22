@@ -3,6 +3,10 @@ connection: "nelsonmysql"
 # include all the views
 include: "*.view"
 
+access_grant: can_view_hr_data {
+  user_attribute: department
+  allowed_values: [ "HR"]
+}
 
 datagroup: nelsonmysql_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
@@ -12,7 +16,7 @@ datagroup: nelsonmysql_default_datagroup {
 persist_with: nelsonmysql_default_datagroup
 
 explore: consultant {
-  sql_always_where: ${company} in ({{ _user_attributes['company_name'] }}) ;;
+  sql_always_where: ${company} in ({{ _user_attributes["company_name"] }}) ;;
 }
 
 
