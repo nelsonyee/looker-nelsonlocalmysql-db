@@ -16,6 +16,11 @@ view: engagement_manager {
     sql: ${TABLE}.LastName ;;
   }
 
+  dimension: ssn {
+    type: string
+    sql: ${TABLE}.SSN ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [last_name, first_name]
