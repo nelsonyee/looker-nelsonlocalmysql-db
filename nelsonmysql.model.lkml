@@ -12,7 +12,7 @@ datagroup: nelsonmysql_default_datagroup {
 persist_with: nelsonmysql_default_datagroup
 
 explore: consultant {
-  sql_always_where: ${company} in ({{ _user_attributes['‘company_name''] }}) ;;
+  sql_always_where: ${company} in ({{ _user_attributes['company_name'] }}) ;;
 }
 
 
@@ -20,7 +20,7 @@ explore: engagement_manager {}
 
 
 explore: project {
-  sql_always_where: ${consultant.company}company} in ({{ _user_attributes['‘company_name''] }}) ;;
+  sql_always_where: ${consultant.company}} in ({{ _user_attributes['company_name'] }}) ;;
   join: consultant {
     type: left_outer
     relationship: many_to_one
