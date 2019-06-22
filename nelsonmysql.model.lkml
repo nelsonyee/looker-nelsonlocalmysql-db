@@ -20,6 +20,7 @@ explore: engagement_manager {}
 
 
 explore: project {
+  sql_always_where: ${consultant.company}company} in ({{ _user_attributes['‘company_name''] }}) ;;
   join: consultant {
     type: left_outer
     relationship: many_to_one
