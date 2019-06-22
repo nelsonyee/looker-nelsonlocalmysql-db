@@ -17,6 +17,7 @@ view: engagement_manager {
   }
 
   dimension: ssn {
+    required_access_grants: [can_view_hr_data]
     type: string
     sql: ${TABLE}.SSN ;;
   }
