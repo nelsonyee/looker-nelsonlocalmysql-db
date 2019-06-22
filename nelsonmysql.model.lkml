@@ -12,7 +12,7 @@ datagroup: nelsonmysql_default_datagroup {
 persist_with: nelsonmysql_default_datagroup
 
 explore: consultant {
-  sql_always_where: ${company} in ({{ _user_attributes[‘company_name'] }}) ;;
+  sql_always_where: ${company} in ({{ _user_attributes['‘company_name''] }}) ;;
 }
 
 
