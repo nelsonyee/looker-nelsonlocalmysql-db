@@ -28,6 +28,7 @@ view: project {
   }
 
   dimension: id_project {
+    primary_key: yes
     type: number
     sql: ${TABLE}.idProject ;;
   }

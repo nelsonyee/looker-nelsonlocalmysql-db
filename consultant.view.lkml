@@ -7,6 +7,7 @@ view: consultant {
   }
 
   dimension: id_consultant {
+    primary_key: yes
     type: number
     sql: ${TABLE}.idConsultant ;;
   }

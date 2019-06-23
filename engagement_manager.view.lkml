@@ -7,6 +7,7 @@ view: engagement_manager {
   }
 
   dimension: id_engagement_manager {
+    primary_key: yes
     type: number
     sql: ${TABLE}.idEngagement_Manager ;;
   }
@@ -18,6 +19,7 @@ view: engagement_manager {
 
   dimension: ssn {
     required_access_grants: [can_view_hr_data]
+    label: "SSN"
     type: string
     sql: ${TABLE}.SSN ;;
   }
