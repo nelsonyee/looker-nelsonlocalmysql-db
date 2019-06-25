@@ -17,16 +17,17 @@ view: consultant_project_facts {
   dimension: project_id {
     type: number
     primary_key: yes
-    sql: ${TABLE}.idProject ;;
+    sql: ${TABLE}.project_id ;;
   }
   dimension_group: start_date {
     type: time
+    label: "Start"
     timeframes: [date, week, month]
-    sql: ${TABLE}.StartDate ;;
+    sql: ${TABLE}.start_date ;;
   }
   dimension: project_name {
     type: string
-    sql: ${TABLE}.ProjectName ;;
+    sql: ${TABLE}.project_name ;;
   }
   # # You can specify the table name if it's different from the view name:
   # sql_table_name: my_schema_name.tester ;;
