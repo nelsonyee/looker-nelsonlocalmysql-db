@@ -13,6 +13,11 @@ datagroup: nelsonmysql_default_datagroup {
   max_cache_age: "1 hour"
 }
 
+datagroup: projects_datagroup {
+  sql_trigger: SELECT max(idProject) FROM project ;;
+  max_cache_age: "2 hours"
+}
+
 persist_with: nelsonmysql_default_datagroup
 
 explore: consultant {
@@ -36,3 +41,5 @@ explore: project {
     sql_on: ${engagement_manager.id_engagement_manager} = ${project.em} ;;
   }
 }
+
+explore: consultant_project_facts {}
