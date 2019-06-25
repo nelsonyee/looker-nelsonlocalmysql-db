@@ -95,6 +95,11 @@ view: project {
     type: count
     drill_fields: [project_name]
   }
+
+  measure: project_duration {
+    type: number
+    sql: datediff (${end_date},${start_date}) ;;
+  }
   set: project_name {
     fields: [project_name, start_date, end_date, percent_complete]
 
