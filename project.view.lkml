@@ -98,6 +98,7 @@ view: project {
 
   measure: project_duration {
     type: number
+    label: "Project Duration"
     sql: datediff (${end_date},${start_date}) ;;
   }
   set: project_name {
