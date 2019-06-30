@@ -66,7 +66,3 @@
     field: project.start_year
 
 
-  elements:
-    - name: hello_world
-      type: looker_column
-
