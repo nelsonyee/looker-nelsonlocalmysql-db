@@ -15,7 +15,12 @@ datagroup: nelsonmysql_default_datagroup {
   max_cache_age: "1 hour"
 }
 
-datagroup: projects_datagroup {
+#datagroup: projects_datagroup {
+# sql_trigger: SELECT max(idProject) FROM project ;;
+#  max_cache_age: "2 hours"
+#}
+
+datagroup: em_datagroup {
   sql_trigger: SELECT max(idProject) FROM project ;;
   max_cache_age: "2 hours"
 }
@@ -44,4 +49,7 @@ explore: project {
   }
 }
 
-explore: consultant_project_facts {}
+##explore: consultant_project_facts {}
+explore: engagement_manager_test_pdt {
+  label: "Engagement Manager PDT Test"
+}
