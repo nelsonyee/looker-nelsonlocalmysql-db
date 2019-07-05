@@ -1,0 +1,29 @@
+// The name of this file should be the associated locale code followed by ".strings",
+// e.g. "en_US.strings"
+//
+// There is one .strings file per locale.
+//
+// Define your translated strings one line at a time like so:
+// "My Key" = "My Translation";
+// "My Other Key" = "My Other Translation";
+//
+// Keys can be any string; choose whatever scheme helps you stay organized.
+//
+// For example:
+// "my.more.programmatic.key" = "A Translation";
+//
+// Then, set your LookML label and description parameters to the desired key values.
+//
+// To choose this file as the master key list and as the one to validate against,
+// set its locale code ("es") as the default_locale in the manifest file.
+"Consultant" = "Consultor";
+"Id" = "Identificador";
+"Project" = "Proyecto";
+"Last Name" = "Apellido";
+"First Name" = "Nombre de pila";
+"Company" = "Empresa";
+"US West Active Projects" = "US West Activa Proyectos";
+"US West Projects with SF consultants" = "US West Activa Proyectos Con SF Consultores";
+"Tree Map" = "Mapa del árbol";
+"Start Date in 2019" = "Fecha De Inicio";
+"US West Projects" = "US West Proyectos";
