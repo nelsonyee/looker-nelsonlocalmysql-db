@@ -58,6 +58,11 @@ view: project {
       url: "http://www.google.com/search?q={{ value }}"
       icon_url: "http://google.com/favicon.ico"
     }
+    link: {
+      label: "Salesforce"
+      url: "https://looker.my.salesforce.com/{{ account.salesforce_account_id._value }}"
+      icon_url: "https://www.google.com/s2/favicons?domain=www.salesforce.com"
+    }
   }
 
 

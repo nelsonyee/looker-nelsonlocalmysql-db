@@ -47,6 +47,11 @@ explore: project {
     relationship: many_to_one
     sql_on: ${engagement_manager.id_engagement_manager} = ${project.em} ;;
   }
+  join: account {
+    type: left_outer
+    relationship: one_to_one
+    sql_on: ${account.account_name} = ${project.customer} ;;
+  }
 }
 
 ##explore: consultant_project_facts {}
