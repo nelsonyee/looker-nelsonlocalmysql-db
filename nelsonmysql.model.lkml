@@ -34,6 +34,7 @@ explore: consultant {
 
 explore: engagement_manager {}
 
+explore: account {}
 
 explore: project {
   sql_always_where: ${consultant.company} in ({{ _user_attributes['company_name'] }}) ;;

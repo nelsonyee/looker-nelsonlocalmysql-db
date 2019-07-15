@@ -22,6 +22,11 @@ view: account {
     sql: ${TABLE}.idAccount ;;
   }
 
+  dimension: account_region {
+    type: string
+    sql: ${TABLE}.Region ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [salesforce_account_id, account_name]
