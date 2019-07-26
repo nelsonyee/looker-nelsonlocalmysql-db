@@ -27,6 +27,22 @@ view: account {
     sql: ${TABLE}.Region ;;
   }
 
+  dimension: city {
+    type: string
+    sql: ${TABLE}.City ;;
+  }
+
+  dimension: state {
+    type: string
+    map_layer_name: us_states
+    sql: ${TABLE}.State ;;
+  }
+
+  dimension: website {
+    type: string
+    sql: ${TABLE}.Website ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [salesforce_account_id, account_name]
