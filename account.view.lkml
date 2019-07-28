@@ -32,15 +32,20 @@ view: account {
     sql: ${TABLE}.City ;;
   }
 
-  dimension: state {
-    type: string
-    map_layer_name: us_states
-    sql: ${TABLE}.State ;;
-  }
+#   dimension: state {
+#     type: string
+#     map_layer_name: us_states
+#     sql: ${TABLE}.State ;;
+#   }
 
   dimension: website {
     type: string
     sql: ${TABLE}.Website ;;
+  }
+
+  dimension: postal_code {
+    type: zipcode
+    sql: ${TABLE}.PostalCode ;;
   }
 
   measure: count {
