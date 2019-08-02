@@ -48,9 +48,10 @@ view: account {
     sql: ${TABLE}.PostalCode ;;
   }
 
-  dimension: bayarea {
+  dimension: zip_code {
+    type: zipcode
     sql: ${TABLE}.PostalCode ;;
-    map_layer_name: bayarea
+    map_layer_name: california
   }
 
   measure: count {

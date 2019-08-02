@@ -63,7 +63,6 @@ explore: engagement_manager_test_pdt {
 
 map_layer: bayarea {
   file: "bayarea.topojson"
-  property_key: "bayarea"
 }
 
 map_layer: belgium_provinces {
@@ -131,6 +130,145 @@ view: example_map {
   measure: value {
     type: average
     sql: ${TABLE}.value ;;
+  }
+
+}
+
+map_layer: california {
+  file: "caCountiesTopoSimple.json"
+  property_key: "name"
+}
+
+explore: california_map {}
+
+view: california_map {
+  derived_table: {
+    sql:
+    -- some quick dummy data to show
+        SELECT
+           "Shasta" AS county,
+           178000 AS population
+        UNION ALL
+        SELECT
+           "San Joaquin" AS county,
+           716000 AS population
+        UNION ALL
+        SELECT
+           "Monterey" AS county,
+           422000 AS population
+        UNION ALL
+        SELECT
+           "Contra Costa" AS county,
+           1111000 AS population
+        UNION ALL
+        SELECT
+           "Riverside" AS county,
+           2240000 AS population
+        UNION ALL
+        SELECT
+           "San Bernardino" AS county,
+           2065000 AS population
+        UNION ALL
+        SELECT
+           "Sacramento" AS county,
+           1436000 AS population
+        UNION ALL
+        SELECT
+           "Alameda" AS county,
+           1530000 AS population
+        UNION ALL
+        SELECT
+           "Fresno" AS county,
+           943000 AS population
+        UNION ALL
+        SELECT
+           "San Francisco" AS county,
+           883000 AS population
+        UNION ALL
+        SELECT
+           "Los Angeles" AS county,
+           9900000 AS population
+        UNION ALL
+        SELECT
+           "San Diego" AS county,
+           3140000 AS population
+        UNION ALL
+        SELECT
+           "Santa Clara" AS county,
+           1809000 AS population
+        UNION ALL
+        SELECT
+           "Orange" AS county,
+           3056000 AS population
+    ;;
+  }
+
+  dimension: county {
+    sql: ${TABLE}.county ;;
+    map_layer_name: california
+  }
+
+  measure: population {
+    type: average
+    sql: ${TABLE}.population ;;
+  }
+
+}
+
+################################################
+# GLOBAL                                       #
+# Match on FULL CONTINENT NAME e.g. "Asia"     #
+################################################
+
+map_layer: world_continents {
+  file: "world-continents.json"
+  property_key: "continent"
+}
+
+explore: world_map {}
+
+view: world_map {
+  derived_table: {
+    sql:
+    -- some quick dummy data to show
+        SELECT
+           "Asia" AS continent,
+           4581757408 AS population
+        UNION ALL
+        SELECT
+           "Africa" as continent,
+           1216130000 as population
+        UNION ALL
+        SELECT
+           "Europe" AS continent,
+           738849000 as population
+        UNION ALL
+        SELECT
+           "North America" AS continent,
+           579024000 as population
+        UNION ALL
+        SELECT
+           "South America" AS continent,
+           422535000 as population
+        UNION ALL
+        SELECT
+           "Oceania" AS continent,
+           38304000 as population
+        UNION ALL
+        SELECT
+           "Antartica" AS continent,
+           1106 as population
+    ;;
+  }
+
+  dimension: continent {
+    sql: ${TABLE}.continent ;;
+    map_layer_name: world_continents
+  }
+
+  measure: population {
+    type: average
+    sql: ${TABLE}.population ;;
   }
 
 }
