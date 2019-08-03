@@ -139,6 +139,11 @@ map_layer: california {
   property_key: "name"
 }
 
+explore: cacounty_population {
+  view_label: "CA Counties Population"
+  label: "CA Counties Population"
+}
+
 explore: california_map {}
 
 view: california_map {
