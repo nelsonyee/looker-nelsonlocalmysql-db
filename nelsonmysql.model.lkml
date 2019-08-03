@@ -61,10 +61,6 @@ explore: engagement_manager_test_pdt {
   label: "Engagement Manager PDT Test"
 }
 
-map_layer: bayarea {
-  file: "bayarea.topojson"
-}
-
 map_layer: belgium_provinces {
   file: "belgium-provinces.topojson"
   property_key: "NAME_1"
@@ -277,3 +273,85 @@ view: world_map {
   }
 
 }
+
+map_layer: rhode_island_counties {
+  file: "rhode_island.json"
+  property_key: "NAME"
+}
+
+map_layer: rhode_island_region {
+  file: "rhode_island.json"
+  property_key: "REGION"
+}
+
+explore: rhode_island_counties {}
+view: rhode_island_counties {
+  derived_table: {
+    sql:
+    -- some quick dummy data to show
+    SELECT
+    "Kent" AS ri_county,
+    163861 AS ri_county_population
+    UNION ALL
+    SELECT
+    "Bristol" AS ri_county,
+    48649 AS ri_county_population
+    UNION ALL
+    SELECT
+    "Newport" AS ri_county,
+    82542 AS ri_county_population
+    UNION ALL
+    SELECT
+    "Providence" AS ri_county,
+    636084 AS ri_county_population
+    UNION ALL
+    SELECT
+    "Washington" AS ri_county,
+    126179 AS ri_county_population
+    ;;
+  }
+
+  dimension: ri_county {
+    sql: ${TABLE}.ri_county ;;
+    label: "Rhode Island County"
+    map_layer_name: rhode_island_counties
+  }
+
+  measure: ri_county_population {
+    type: average
+    label: "Rhode Island Population by County"
+    sql: ${TABLE}.ri_county_population ;;
+  }
+}
+
+explore: rhode_island_regions {}
+view: rhode_island_regions {
+  derived_table: {
+    sql:
+        -- some quick dummy data to show
+        SELECT
+        "North RI" AS ri_region,
+        848594 AS ri_region_population
+        UNION ALL
+        SELECT
+        "South RI" AS ri_region,
+        208721 AS ri_region_population
+        ;;
+  }
+
+  dimension: ri_regions {
+    sql: ${TABLE}.ri_region;;
+    label: "Rhode Island Regions"
+    map_layer_name: rhode_island_region
+  }
+
+  measure: ri_region_population {
+    label: "Rhode Island Population by Region"
+    type: average
+    sql: ${TABLE}.ri_region_population ;;
+  }
+}
+
+
+
+
