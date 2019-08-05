@@ -352,6 +352,35 @@ view: rhode_island_regions {
   }
 }
 
+map_layer: colorado_region {
+  file: "colorado.topojson"
+  property_key: "REGION"
+}
 
+explore: colorado_regions {}
+view: colorado_regions {
+  derived_table: {
+    sql:
+        -- some quick dummy data to show
+        SELECT
+        "West Colorado" AS co_region,
+        2000594 AS co_region_population
+        UNION ALL
+        SELECT
+        "East Colorado" AS co_region,
+        3920872 AS co_region_population
+        ;;
+  }
 
+  dimension: co_regions {
+    sql: ${TABLE}.co_region;;
+    label: "Colorado Regions"
+    map_layer_name: colorado_region
+  }
 
+  measure: ri_region_population {
+    label: "Colorado Population by Region"
+    type: average
+    sql: ${TABLE}.co_region_population ;;
+  }
+}
