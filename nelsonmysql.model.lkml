@@ -136,8 +136,8 @@ map_layer: california {
 }
 
 explore: cacounty_population {
-  view_label: "CA Counties Population"
-  label: "CA Counties Population"
+  view_label: "CA County Population"
+  label: "CA County Population"
 }
 
 explore: california_map {}
@@ -286,6 +286,7 @@ map_layer: rhode_island_region {
 
 explore: rhode_island_counties {}
 view: rhode_island_counties {
+  label: "Rhode Island County"
   derived_table: {
     sql:
     -- some quick dummy data to show
@@ -313,13 +314,13 @@ view: rhode_island_counties {
 
   dimension: ri_county {
     sql: ${TABLE}.ri_county ;;
-    label: "Rhode Island County"
+    label: "County Name"
     map_layer_name: rhode_island_counties
   }
 
   measure: ri_county_population {
     type: average
-    label: "Rhode Island Population by County"
+    label: "Population"
     sql: ${TABLE}.ri_county_population ;;
   }
 }
@@ -341,12 +342,12 @@ view: rhode_island_regions {
 
   dimension: ri_regions {
     sql: ${TABLE}.ri_region;;
-    label: "Rhode Island Regions"
+    label: "Region Name"
     map_layer_name: rhode_island_region
   }
 
   measure: ri_region_population {
-    label: "Rhode Island Population by Region"
+    label: "Population"
     type: average
     sql: ${TABLE}.ri_region_population ;;
   }
