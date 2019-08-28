@@ -4,7 +4,7 @@ include: "*.dashboard.lookml"
 
 # include all the views
 include: "*.view"
-
+label: "1. nelson mysql"
 access_grant: can_view_hr_data {
   user_attribute: department
   allowed_values: [ "HR"]
