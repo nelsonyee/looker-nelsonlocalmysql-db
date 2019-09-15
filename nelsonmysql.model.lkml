@@ -31,6 +31,9 @@ explore: consultant {
   sql_always_where: ${company} in ('{{ _user_attributes['company_name'] }}') ;;
 }
 
+explore: zip {}
+
+explore: busroute {}
 
 explore: engagement_manager {}
 
