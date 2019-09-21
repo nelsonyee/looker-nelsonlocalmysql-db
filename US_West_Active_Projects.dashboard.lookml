@@ -1,6 +1,5 @@
 - dashboard: active_us_west_projects
   title: Active US West Projects
-  label: Active US West Projects
   layout: newspaper
   refresh: 1 hour
   elements:
@@ -26,7 +25,6 @@
     height: 2
   - name: Tree Map
     title: Tree Map
-    label: Tree Map
     model: nelsonmysql
     explore: project
     type: treemap

@@ -1,6 +1,6 @@
 connection: "nelsonmysql"
 
-# include: "*.dashboard.lookml"
+include: "*.dashboard.lookml"
 
 # include all the views
 include: "*.view"
