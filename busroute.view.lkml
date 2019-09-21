@@ -53,6 +53,11 @@ view: busroute {
     sql_longitude: ${TABLE}.origin_longitude ;;
   }
 
+  dimension: avg_daily_ridership {
+    type: number
+    sql: ${TABLE}.avg_daily_ridership ;;
+  }
+
   measure: count {
     type: count
     drill_fields: []
