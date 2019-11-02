@@ -143,6 +143,11 @@ explore: cacounty_population {
   label: "CA County Population"
 }
 
+explore: caagerace {
+  view_label: "CA Age/Race"
+  label: "CA Age/Race"
+}
+
 explore: california_map {}
 
 view: california_map {
