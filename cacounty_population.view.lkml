@@ -9,18 +9,24 @@ view: cacounty_population {
     sql: ${TABLE}.CACountyName ;;
   }
 
-  measure: county2018_population {
+  dimension: county2018_population {
     view_label: "2018 Population"
     label: "2018 Population"
     type: number
     sql: ${TABLE}.County2018Population ;;
   }
 
-  measure: county2019_population {
+  dimension: county2019_population {
     view_label: "2019 Population"
     label: "2019 Population"
     type: number
     sql: ${TABLE}.County2019Population ;;
+  }
+
+  measure: ca_population {
+    label: "2019 CA Population"
+    type: sum
+    sql: ${county2019_population} ;;
   }
 
   dimension: id_cacounty_population {
