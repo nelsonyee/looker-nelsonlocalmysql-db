@@ -35,6 +35,40 @@ view: cacounty_population {
     sql: ${TABLE}.idCACountyPopulation ;;
   }
 
+  dimension: population_category_value {
+    sql: ${county2019_population};;
+    html: {% if value >= 1000000 %}
+      <b><p style="color: black; background-color: #dc7350; margin: 0; border-radius: 5px; text-align:center">{{ value }}</p></b>
+
+{% elsif value >= 500000 and value < 1000000 %}
+      <b><p style="color: black; background-color: #e9b404; margin: 0; border-radius: 5px; text-align:center">{{ value }}</p></b>
+
+{% elsif value >= 100000 and value < 500000 %}
+      <b><p style="color: black; background-color: #00ff00; margin: 0; border-radius: 5px; text-align:center">{{ value }}</p></b>
+
+{% else %}
+      <b><p style="color: black; background-color: #49cec1; margin: 0; border-radius: 5px; text-align:center">{{ value }}</p></b>
+{% endif %}
+    ;;
+  }
+
+  dimension: population_category {
+    sql: ${county2019_population};;
+    html: {% if value >= 1000000 %}
+      <b><p style="color: black; background-color: #dc7350; margin: 0; border-radius: 5px; text-align:center">{{ "1 Million and Over" }}</p></b>
+
+{% elsif value >= 500000 and value < 1000000 %}
+      <b><p style="color: black; background-color: #e9b404; margin: 0; border-radius: 5px; text-align:center">{{ "Between 500K and < 1M" }}</p></b>
+
+{% elsif value >= 100000 and value < 500000 %}
+      <b><p style="color: black; background-color: #00ff00; margin: 0; border-radius: 5px; text-align:center">{{ "Between 100K and < 500K" }}</p></b>
+
+{% else %}
+      <b><p style="color: black; background-color: #49cec1; margin: 0; border-radius: 5px; text-align:center">{{ "Less than 100K" }}</p></b>
+{% endif %}
+    ;;
+  }
+
   measure: yoypercent_change {
     view_label: "Year Over Year Population % Change"
     label: "Year Over Year Population % Change"
