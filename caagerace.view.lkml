@@ -137,10 +137,12 @@ view: caagerace {
     type: sum
     sql: ${pop2010} ;;
     drill_fields: [county_name, race_name]
+    html: <font size="+2">{{linked_value}}</font>;;
   }
 
   measure: count {
     type: count
     drill_fields: [county_name, race_name]
+    hidden: yes
   }
 }
