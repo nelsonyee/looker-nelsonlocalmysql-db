@@ -224,6 +224,10 @@ view: california_map {
 
 }
 
+explore: relocation {
+  view_label: "Relocation"
+  label: "Relocation"
+}
 ################################################
 # GLOBAL                                       #
 # Match on FULL CONTINENT NAME e.g. "Asia"     #
