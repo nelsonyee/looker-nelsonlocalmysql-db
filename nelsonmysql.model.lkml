@@ -25,6 +25,10 @@ datagroup: em_datagroup {
   max_cache_age: "2 hours"
 }
 
+datagroup: ca_county_datagroup {
+  sql_trigger: SELECT max(CountyName) from caagerace ;;
+}
+
 persist_with: nelsonmysql_default_datagroup
 
 explore: consultant {

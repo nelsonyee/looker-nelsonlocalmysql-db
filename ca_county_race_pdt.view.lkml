@@ -1,5 +1,7 @@
 view: ca_county_race_pdt {
   derived_table: {
+    datagroup_trigger: ca_county_datagroup
+    indexes: ["population_by_race"]
     sql: SELECT
         caagerace.CountyName  AS `caagerace.county_name`,
         caagerace.RaceName  AS `caagerace.race_name`,
