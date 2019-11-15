@@ -64,6 +64,10 @@ explore: engagement_manager_test_pdt {
   label: "Engagement Manager PDT Test"
 }
 
+explore: ca_county_race_pdt {
+  label: "CA County Race PDT"
+}
+
 map_layer: belgium_provinces {
   file: "belgium-provinces.topojson"
   property_key: "NAME_1"
