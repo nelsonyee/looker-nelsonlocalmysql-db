@@ -24,11 +24,13 @@ view: ca_county_race_pdt {
   }
 
   dimension: caagerace_county_name {
+    label: "County"
     type: string
     sql: ${TABLE}.`caagerace.county_name` ;;
   }
 
   dimension: caagerace_race_name {
+    label: "Race"
     type: string
     sql: ${TABLE}.`caagerace.race_name` ;;
   }
@@ -39,6 +41,7 @@ view: ca_county_race_pdt {
   }
 
   dimension: total_county_population {
+    label: "Total Population"
     type: number
     sql: ${TABLE}.total_county_population ;;
   }
