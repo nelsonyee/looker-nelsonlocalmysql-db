@@ -76,67 +76,67 @@ view: caagerace {
   measure: sum_pop2000 {
     type: sum
     sql: ${pop2000} ;;
-    drill_fields: [county_name, race_name]
+    drill_fields: [county_name, race_name, sum_pop2000]
   }
 
   measure: sum_pop2001 {
     type: sum
     sql: ${pop2001} ;;
-    drill_fields: [county_name, race_name]
+    drill_fields: [county_name, race_name, sum_pop2001]
   }
 
   measure: sum_pop2002 {
     type: sum
     sql: ${pop2002} ;;
-    drill_fields: [county_name, race_name]
+    drill_fields: [county_name, race_name, sum_pop2002]
   }
 
   measure: sum_pop2003 {
     type: sum
     sql: ${pop2003} ;;
-    drill_fields: [county_name, race_name]
+    drill_fields: [county_name, race_name, sum_pop2003]
   }
 
   measure: sum_pop2004 {
     type: sum
     sql: ${pop2004} ;;
-    drill_fields: [county_name, race_name]
+    drill_fields: [county_name, race_name, sum_pop2004]
   }
 
   measure: sum_pop2005 {
     type: sum
     sql: ${pop2005} ;;
-    drill_fields: [county_name, race_name]
+    drill_fields: [county_name, race_name, sum_pop2005]
   }
 
   measure: sum_pop2006 {
     type: sum
     sql: ${pop2006} ;;
-    drill_fields: [county_name, race_name]
+    drill_fields: [county_name, race_name, sum_pop2006]
   }
 
   measure: sum_pop2007 {
     type: sum
     sql: ${pop2007} ;;
-    drill_fields: [county_name, race_name]
+    drill_fields: [county_name, race_name, sum_pop2007]
   }
 
   measure: sum_pop2008 {
     type: sum
     sql: ${pop2008} ;;
-    drill_fields: [county_name, race_name]
+    drill_fields: [county_name, race_name, sum_pop2008]
   }
 
   measure: sum_pop2009 {
     type: sum
     sql: ${pop2009} ;;
-    drill_fields: [county_name, race_name]
+    drill_fields: [county_name, race_name, sum_pop2010]
   }
 
   measure: sum_pop2010 {
     type: sum
     sql: ${pop2010} ;;
-    drill_fields: [county_name, race_name]
+    drill_fields: [county_name, race_name, sum_pop2010]
     html: <font size="+2">{{linked_value}}</font>;;
   }
 
