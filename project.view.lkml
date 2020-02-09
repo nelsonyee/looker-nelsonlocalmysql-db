@@ -74,6 +74,32 @@ view: project {
   dimension: project_name {
     type: string
     sql: ${TABLE}.ProjectName ;;
+    action: {
+      label: "Update Project Name"
+      url: "https://e247c1.pipegears.io/projects"  # Replace [yourlink]
+      param: {
+        name: "auth_code"
+        value: "abc123456"
+      }
+      user_attribute_param: {
+        user_attribute: id
+        name: "user_id"
+      }
+      param: {
+        name: "project_name"
+        value: "{{ value }}"
+      }
+      param: {
+        name: "project_id"
+        value: "{{ project.id_project._value }}"
+      }
+      form_param: {
+        label: "New Project Name"
+        name: "new_project_name"
+        type: string
+        required: no
+      }
+    }
   }
 
   dimension: stage {
