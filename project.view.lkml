@@ -76,7 +76,8 @@ view: project {
     sql: ${TABLE}.ProjectName ;;
     action: {
       label: "Update Project Name"
-      url: "https://e247c1.pipegears.io/projects"  # Replace [yourlink]
+    ##  url: "https://e247c1.pipegears.io/projects"  # Replace [yourlink]
+      url: "https://hooks.zapier.com/hooks/catch/6674471/ombtdxc/"
       param: {
         name: "auth_code"
         value: "abc123456"
@@ -91,7 +92,7 @@ view: project {
       }
       param: {
         name: "project_id"
-        value: "{{ project.id_project._value }}"
+        value: "{{ project.sfdc_id._value }}"
       }
       form_param: {
         label: "New Project Name"
@@ -125,6 +126,49 @@ view: project {
   dimension: total_billable_hours {
     type: number
     sql: ${TABLE}.TotalBillableHours ;;
+  }
+
+  dimension: sfdc_id {
+    type: string
+    label: "SFDC ID"
+    sql: ${TABLE}.SFDC_ID ;;
+  }
+
+  dimension: next_steps {
+    type: string
+    label: "Next Steps"
+    sql: ${TABLE}.NextSteps ;;
+    action: {
+      label: "Append to Next Step Notes"
+      ##  url: "https://e247c1.pipegears.io/projects"  # Replace [yourlink]
+      url: "https://hooks.zapier.com/hooks/catch/6674471/ombtdxc/"
+      param: {
+        name: "auth_code"
+        value: "abc123456"
+      }
+      user_attribute_param: {
+        user_attribute: id
+        name: "user_id"
+      }
+      param: {
+        name: "next_steps"
+        value: "{{ value }}"
+      }
+      param: {
+        name: "project_id"
+        value: "{{ project.sfdc_id._value }}"
+      }
+      param: {
+        name: "append_next_steps"
+        value: "{{ project.next_steps._value }}"
+      }
+      form_param: {
+        label: "Add to Next Step Notes"
+        name: "add_next_steps"
+        type: string
+        required: no
+      }
+    }
   }
 
   measure: count {
