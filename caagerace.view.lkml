@@ -140,6 +140,61 @@ view: caagerace {
     html: <font size="+2">{{linked_value}}</font>;;
   }
 
+  measure: sum_pop2010_pre_baby_boomers {
+    type: sum
+    label: "Pre-Baby Boomers 2010"
+    filters: {
+      field: caagerace.age
+      value: ">=67"
+    }
+    sql: ${pop2010} ;;
+    drill_fields: [county_name, race_name, sum_pop2010]
+  }
+
+  measure: sum_pop2010_baby_boomers {
+    type: sum
+    label: "Baby Boomers 2010"
+    filters: {
+      field: caagerace.age
+      value: ">=46 AND <=66"
+    }
+    sql: ${pop2010} ;;
+    drill_fields: [county_name, race_name, sum_pop2010]
+  }
+
+  measure: sum_pop2010_gen_x {
+    type: sum
+    label: "Gen X Population 2010"
+    filters: {
+      field: caagerace.age
+      value: ">=31 AND <=45"
+    }
+    sql: ${pop2010} ;;
+    drill_fields: [county_name, race_name, sum_pop2010]
+  }
+
+  measure: sum_pop2010_gen_y {
+    type: sum
+    label: "Gen Y Population 2010"
+    filters: {
+      field: caagerace.age
+      value: ">=16 AND <=30"
+    }
+    sql: ${pop2010} ;;
+    drill_fields: [county_name, race_name, sum_pop2010]
+  }
+
+  measure: sum_pop2010_gen_z {
+    type: sum
+    label: "Gen Z Population 2010"
+    filters: {
+      field: caagerace.age
+      value: ">=0 AND <=15"
+    }
+    sql: ${pop2010} ;;
+    drill_fields: [county_name, race_name, sum_pop2010]
+  }
+
   measure: count {
     type: count
     drill_fields: [county_name, race_name]
