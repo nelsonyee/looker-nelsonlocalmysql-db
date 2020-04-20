@@ -1,7 +1,8 @@
 view: engagement_manager_test_pdt {
     derived_table: {
       publish_as_db_view: yes
-      datagroup_trigger: em_datagroup
+      sql_trigger_value: SELECT HOUR(CURTIME()) ;;
+  #   datagroup_trigger: em_datagroup
       indexes: ["id_engagement_manager"]
       explore_source: engagement_manager {
         column: id_engagement_manager {
