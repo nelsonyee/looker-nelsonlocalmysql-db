@@ -1,5 +1,6 @@
 view: engagement_manager_test_pdt {
     derived_table: {
+      publish_as_db_view: yes
       datagroup_trigger: em_datagroup
       indexes: ["id_engagement_manager"]
       explore_source: engagement_manager {

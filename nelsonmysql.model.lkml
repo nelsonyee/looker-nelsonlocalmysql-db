@@ -22,7 +22,7 @@ datagroup: nelsonmysql_default_datagroup {
 
 datagroup: em_datagroup {
   sql_trigger: SELECT max(idProject) FROM project ;;
-  max_cache_age: "2 hours"
+  max_cache_age: "5 minutes"
 }
 
 datagroup: ca_county_datagroup {
