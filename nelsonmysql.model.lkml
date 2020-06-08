@@ -312,34 +312,60 @@ view: rhode_island_counties {
     -- some quick dummy data to show
     SELECT
     "Kent" AS ri_county,
+    "North RI" AS ri_region,
     163861 AS ri_county_population
     UNION ALL
     SELECT
     "Bristol" AS ri_county,
+    "South RI" AS ri_region,
     48649 AS ri_county_population
     UNION ALL
     SELECT
     "Newport" AS ri_county,
+    "South RI" AS ri_region,
     82542 AS ri_county_population
     UNION ALL
     SELECT
     "Providence" AS ri_county,
+    "North RI" AS ri_region,
     636084 AS ri_county_population
     UNION ALL
     SELECT
     "Washington" AS ri_county,
+    "South RI" AS ri_region,
     126179 AS ri_county_population
     ;;
   }
 
   dimension: ri_county {
     sql: ${TABLE}.ri_county ;;
-    label: "County Name"
+    label: "County"
     map_layer_name: rhode_island_counties
   }
 
+  dimension: ri_region {
+    sql: ${TABLE}.ri_region ;;
+    label: "Region"
+    map_layer_name: rhode_island_region
+  }
+
+  dimension: geography_level {
+    label_from_parameter: select_geography_level
+    type: string
+    sql:case when {% parameter select_geography_level %} = 'County' then ${ri_county}
+             when {% parameter select_geography_level %} = 'Region' then ${ri_region}
+        else ${ri_county}
+        end;;
+  }
+
+  parameter: select_geography_level {
+    type: string
+    allowed_value: {value: "County"}
+    allowed_value: {value: "Region"}
+  }
+
   measure: ri_county_population {
-    type: average
+    type: sum
     label: "Population"
     sql: ${TABLE}.ri_county_population ;;
   }
@@ -368,7 +394,7 @@ view: rhode_island_regions {
 
   measure: ri_region_population {
     label: "Population"
-    type: average
+    type: sum
     sql: ${TABLE}.ri_region_population ;;
   }
 }
@@ -401,7 +427,7 @@ view: colorado_regions {
 
   measure: ri_region_population {
     label: "Colorado Population by Region"
-    type: average
+    type: sum
     sql: ${TABLE}.co_region_population ;;
   }
 }
