@@ -18,6 +18,19 @@ view: ca_county_race_pdt {
        ;;
   }
 
+  filter: county_comparitor {
+    type: string
+    suggest_dimension: caagerace_county_name
+    suggest_explore: ca_county_race_pdt
+  }
+
+  dimension: county_comparison {
+    type: string
+    sql: CASE WHEN {% condition county_comparitor %} ${caagerace_county_name} {% endcondition %} THEN ${caagerace_county_name}
+    ELSE "All Other Counties"
+  END ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [detail*]
@@ -35,8 +48,8 @@ view: ca_county_race_pdt {
     sql: ${TABLE}.`caagerace.race_name` ;;
   }
 
-  dimension: population_by_race {
-    type: number
+  measure: population_by_race {
+    type: sum
     sql: ${TABLE}.population_by_race ;;
   }
 
@@ -46,8 +59,9 @@ view: ca_county_race_pdt {
     sql: ${TABLE}.total_county_population ;;
   }
 
-  dimension: percent {
-    type: number
+  measure: percent {
+    type: average
+    value_format: "0.0\%"
     sql: ${TABLE}.percent ;;
   }
 

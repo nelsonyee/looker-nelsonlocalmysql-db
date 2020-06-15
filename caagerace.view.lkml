@@ -1,6 +1,19 @@
 view: caagerace {
   sql_table_name: ProServices.caagerace ;;
 
+  filter: county_comparitor {
+    type: string
+    suggest_dimension: caagerace.county_name
+    suggest_explore: caagerace
+  }
+
+  dimension: county_comparison {
+    type: string
+    sql: CASE WHEN {% condition county_comparitor %} ${county_name} {% endcondition %} THEN ${county_name}
+          ELSE "All Other Counties"
+        END ;;
+  }
+
   dimension: age {
     type: number
     sql: ${TABLE}.Age ;;
@@ -199,5 +212,27 @@ view: caagerace {
     type: count
     drill_fields: [county_name, race_name]
     hidden: yes
+  }
+
+  filter: population_age {
+    type:  number
+    suggest_dimension: age
+    suggest_explore: caagerace
+  }
+
+  dimension: age_templated_filter {
+    type: yesno
+    sql: {% condition population_age %} ${age} {% endcondition %};;
+  }
+
+  measure: dynamic_age_count {
+    type: sum
+    sql: ${pop2010} ;;
+    filters: {
+      field: age_templated_filter
+      value: "Yes"
+    }
+
+
   }
 }
