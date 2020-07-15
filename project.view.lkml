@@ -171,6 +171,13 @@ view: project {
     }
   }
 
+  dimension: project_status {
+    sql: CASE WHEN substring(${next_steps},1,1) = 'G' THEN '🟢'
+        WHEN substring(${next_steps},1,1) = 'R' THEN '🔴'
+        WHEN substring(${next_steps},1,1) = 'Y' THEN '🟡'
+        ELSE '' END;;
+  }
+
   measure: count {
     type: count
     drill_fields: [project_name]
