@@ -172,6 +172,7 @@ view: project {
   }
 
   dimension: project_status {
+    label: "Project Status Emoji"
     sql: CASE WHEN substring(${next_steps},1,1) = 'G' THEN '🟢'
         WHEN substring(${next_steps},1,1) = 'R' THEN '🔴'
         WHEN substring(${next_steps},1,1) = 'Y' THEN '🟡'
@@ -181,6 +182,35 @@ view: project {
   measure: count {
     type: count
     drill_fields: [project_name]
+  }
+
+  dimension: status_color {
+    type: string
+    label: "Project Status Color "
+    sql: substring(${next_steps},1,1);;
+    html:
+        {% if value == 'R' %}
+         <p style="background-color:red; color:red">{{ value }}</p>
+        {% elsif value == 'Y' %}
+         <p style="background-color:yellow; color:yellow">{{ value }}</p>
+        {% else %}
+         <p style="background-color:green; color:green">{{ value }}</p>
+        {% endif %};;
+  }
+
+
+  dimension: status_letter {
+    type: string
+    label: "Project Status Letter"
+    sql: substring(${next_steps},1,1);;
+    html:
+       {% if value == 'R'{{rendered_value}} %}
+         <p style="color: red; font-size: 100%">{{ value }}</p>
+       {% elsif value == 'Y' %}
+         <p style="color: #FFA533; font-size:100%">{{ value }}</p>
+       {% else %}
+         <p style="color: green; font-size:100%">{{ value }}</p>
+       {% endif %};;
   }
 
   measure: project_duration {
