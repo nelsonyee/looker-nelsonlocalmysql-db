@@ -9,6 +9,7 @@ view: account {
 
   dimension: account_name {
     type: string
+    description: "Account Name Description"
     sql: ${TABLE}.AccountName ;;
     link: {
       label: "Salesforce"
